@@ -54,6 +54,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
+                onTouchStart={(e) => {
+                  e.preventDefault()
+                  onDelete(id, name)
+                }}
               />
             </IconContext.Provider>
           )}
