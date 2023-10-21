@@ -51,11 +51,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
                 onClick={(e) => {
+                  /*
                   e.preventDefault()
-                  onDelete(id, name)
-                }}
-                onPointerEnter={(e) => {
-                  e.preventDefault()
+                  */
+                  e.stopPropagation()
                   onDelete(id, name)
                 }}
               />
