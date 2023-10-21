@@ -50,10 +50,12 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+                /*
                 onClick={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
+                */
                 onTouchStart={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
