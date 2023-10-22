@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('aaa')
+  console.log('bbb')
   //console.log(id)
   return (
     <>
@@ -50,10 +50,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                onTouchStart={(e) => {
+                onClick={(e) => {
                   e.preventDefault()
                   e.stopPropagation()
-                  onDelete(id, e, name)
+                  onDelete(id, name)
                 }}
               />
             </IconContext.Provider>
