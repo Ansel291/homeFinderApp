@@ -50,10 +50,9 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                onClick={(e) => {
+                onTouchStart={(e) => {
                   e.preventDefault()
-                  e.stopPropagation()
-                  onDelete(id, name)
+                  onDelete(id, e, name)
                 }}
               />
             </IconContext.Provider>
