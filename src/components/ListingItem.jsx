@@ -50,7 +50,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                onPointerEnter={(e) => {
+                onClick={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
@@ -69,7 +69,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverEdit(true)}
                 onMouseLeave={() => setHoverEdit(false)}
                 fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-                onPointerEnter={(e) => {
+                onClick={(e) => {
                   e.preventDefault()
                   onEdit(id)
                 }}
