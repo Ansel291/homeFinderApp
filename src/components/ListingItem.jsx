@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
@@ -50,7 +50,8 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                onClickCapture={(e) => {
+                //onClickCapture={(e) => {
+                onClick={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
@@ -69,7 +70,8 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 onMouseEnter={() => setHoverEdit(true)}
                 onMouseLeave={() => setHoverEdit(false)}
                 fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-                onClickCapture={(e) => {
+                //onClickCapture={(e) => {
+                onClick={(e) => {
                   e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
