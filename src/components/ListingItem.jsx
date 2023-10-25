@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('ddd')
   //console.log(id)
   return (
     <>
@@ -72,7 +72,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 fill={hoverEdit ? '#f97316' : '#a7a7a7'}
                 //onClickCapture={(e) => {
                 onClick={(e) => {
-                  //e.preventDefault()
+                  e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
                 }}
