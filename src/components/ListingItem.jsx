@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('eee')
   //console.log(id)
   return (
     <>
@@ -43,27 +43,29 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 size: '30px',
               }}
             >
-              <AiFillDelete
-                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
-                onMouseEnter={() => setHoverDelete(true)}
-                onMouseLeave={() => setHoverDelete(false)}
-                fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                //onClickCapture={(e) => {
-
+              <button
                 onClick={(e) => {
                   e.preventDefault()
-                  e.stopPropagation()
+                  //e.stopPropagation()
                   onDelete(id, name)
                 }}
+              >
+                <AiFillDelete
+                  className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
+                  onMouseEnter={() => setHoverDelete(true)}
+                  onMouseLeave={() => setHoverDelete(false)}
+                  fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+                  //onClickCapture={(e) => {
 
-                /*
+                  /*
                 onClick={(e) => {
                   e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
                 }}
                 */
-              />
+                />
+              </button>
             </IconContext.Provider>
           )}
           {onEdit && (
@@ -72,27 +74,29 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 size: '30px',
               }}
             >
-              <AiFillEdit
-                className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
-                //fill='#a7a7a7'
-                onMouseEnter={() => setHoverEdit(true)}
-                onMouseLeave={() => setHoverEdit(false)}
-                fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-                //onClickCapture={(e) => {
-
+              <button
                 onClick={(e) => {
                   e.preventDefault()
-                  e.stopPropagation()
+                  //e.stopPropagation()
                   onEdit(id)
                 }}
+              >
+                <AiFillEdit
+                  className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
+                  //fill='#a7a7a7'
+                  onMouseEnter={() => setHoverEdit(true)}
+                  onMouseLeave={() => setHoverEdit(false)}
+                  fill={hoverEdit ? '#f97316' : '#a7a7a7'}
+                  //onClickCapture={(e) => {
 
-                /*
+                  /*
                 onClick={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
                 */
-              />
+                />
+              </button>
             </IconContext.Provider>
           )}
 
