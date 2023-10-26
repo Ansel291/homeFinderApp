@@ -31,12 +31,38 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
       <Link to={`/${type}/${id}`}>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
+          {onDelete && (
+            <IconContext.Provider
+              value={{
+                size: '30px',
+              }}
+            >
+              <AiFillDelete
+                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
+                onMouseEnter={() => setHoverDelete(true)}
+                onMouseLeave={() => setHoverDelete(false)}
+                fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+                //onClickCapture={(e) => {
+                /*
+                onClick={(e) => {
+                  e.preventDefault()
+                  onDelete(id, name)
+                }}
+                */
+                onClick={(e) => {
+                  e.preventDefault()
+                  //e.stopPropagation()
+                  onEdit(id)
+                }}
+              />
+            </IconContext.Provider>
+          )}
           {onEdit && (
             <IconContext.Provider
               value={{
@@ -54,28 +80,6 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                   e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
-                }}
-              />
-            </IconContext.Provider>
-          )}
-
-          {onDelete && (
-            <IconContext.Provider
-              value={{
-                size: '30px',
-              }}
-            >
-              <AiFillDelete
-                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
-                //fill='rgb(231,76,60)'
-                //fill='#a7a7a7'
-                onMouseEnter={() => setHoverDelete(true)}
-                onMouseLeave={() => setHoverDelete(false)}
-                fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                //onClickCapture={(e) => {
-                onClick={(e) => {
-                  e.preventDefault()
-                  onDelete(id, name)
                 }}
               />
             </IconContext.Provider>
