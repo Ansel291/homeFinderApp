@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
@@ -45,6 +45,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             >
               <div
                 onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onDelete(id, name)
+                }}
+                onTouchStart={(e) => {
                   e.preventDefault()
                   e.stopPropagation()
                   onDelete(id, name)
@@ -76,6 +81,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             >
               <div
                 onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onEdit(id)
+                }}
+                onTouchStart={(e) => {
                   e.preventDefault()
                   e.stopPropagation()
                   onEdit(id)
