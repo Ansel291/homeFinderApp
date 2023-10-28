@@ -31,11 +31,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ddd')
+  console.log('eee')
   //console.log(id)
   return (
     <>
-      <Link to={`/${type}/${id}`}>
+      <div>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
           {onDelete && (
             <IconContext.Provider
@@ -44,14 +44,14 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               }}
             >
               <AiFillDelete
-                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
+                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
                 //onClickCapture={(e) => {
 
                 onClick={(e) => {
-                  e.preventDefault()
+                  //e.preventDefault()
                   //e.stopPropagation()
                   onDelete(id, name)
                 }}
@@ -81,7 +81,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 //onClickCapture={(e) => {
 
                 onClick={(e) => {
-                  e.preventDefault()
+                  //e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
                 }}
@@ -140,7 +140,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             {type === 'rent' && '/ Month'}
           </div>
         </div>
-      </Link>
+      </div>
     </>
   )
 }
