@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('eee')
+  console.log('fff')
   //console.log(id)
   return (
     <>
@@ -46,7 +46,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               <div
                 onClick={(e) => {
                   e.preventDefault()
-                  //e.stopPropagation()
+                  e.stopPropagation()
                   onDelete(id, name)
                 }}
               >
@@ -77,7 +77,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               <div
                 onClick={(e) => {
                   e.preventDefault()
-                  //e.stopPropagation()
+                  e.stopPropagation()
                   onEdit(id)
                 }}
               >
