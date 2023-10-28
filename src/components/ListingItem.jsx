@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ggg')
+  console.log('aaa')
   //console.log(id)
   return (
     <>
@@ -43,36 +43,29 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 size: '30px',
               }}
             >
-              <Link
-                to='/'
-                onClick={(e) => {
-                  e.preventDefault()
-                  //e.stopPropagation()
-                  onDelete(id, name)
-                }}
-              >
-                <AiFillDelete
-                  className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
-                  onMouseEnter={() => setHoverDelete(true)}
-                  onMouseLeave={() => setHoverDelete(false)}
-                  fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-                  //onClickCapture={(e) => {
-                  /*
-                onClick={(e) => {
-                  e.preventDefault()
-                  //e.stopPropagation()
-                  onDelete(id, name)
-                }}
+              <AiFillDelete
+                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
+                /*
+                onMouseEnter={() => setHoverDelete(true)}
+                onMouseLeave={() => setHoverDelete(false)}
+                fill={hoverDelete ? '#f25757' : '#a7a7a7'}
                 */
-                  /*
+                //onClickCapture={(e) => {
+
+                onClick={(e) => {
+                  e.preventDefault()
+                  //e.stopPropagation()
+                  onDelete(id, name)
+                }}
+
+                /*
                 onClick={(e) => {
                   e.preventDefault()
                   //e.stopPropagation()
                   onEdit(id)
                 }}
                 */
-                />
-              </Link>
+              />
             </IconContext.Provider>
           )}
           {onEdit && (
@@ -81,36 +74,29 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 size: '30px',
               }}
             >
-              <Link
-                to='/'
-                onClick={(e) => {
-                  e.preventDefault()
-                  //e.stopPropagation()
-                  onEdit(id)
-                }}
-              >
-                <AiFillEdit
-                  className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
-                  //fill='#a7a7a7'
-                  onMouseEnter={() => setHoverEdit(true)}
-                  onMouseLeave={() => setHoverEdit(false)}
-                  fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-                  //onClickCapture={(e) => {
-                  /*
-                onClick={(e) => {
-                  e.preventDefault()
-                  //e.stopPropagation()
-                  onEdit(id)
-                }}
+              <AiFillEdit
+                className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
+                //fill='#a7a7a7'
+                /*
+                onMouseEnter={() => setHoverEdit(true)}
+                onMouseLeave={() => setHoverEdit(false)}
+                fill={hoverEdit ? '#f97316' : '#a7a7a7'}
                 */
-                  /*
+                //onClickCapture={(e) => {
+
+                onClick={(e) => {
+                  e.preventDefault()
+                  //e.stopPropagation()
+                  onEdit(id)
+                }}
+
+                /*
                 onClick={(e) => {
                   e.preventDefault()
                   onDelete(id, name)
                 }}
                 */
-                />
-              </Link>
+              />
             </IconContext.Provider>
           )}
 
