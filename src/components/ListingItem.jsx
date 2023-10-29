@@ -43,7 +43,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onDelete(id, name)
             }}
           >
-            <AiFillDelete className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition' />
+            <AiFillDelete className='float-right ml-[20px] mb-[10px] mr-[50px] transition' />
           </div>
         )}
         {onEdit && (
@@ -54,7 +54,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onEdit(id)
             }}
           >
-            <AiFillEdit className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition' />
+            <AiFillEdit className='float-right mb-[7.5px] mr-[6px] top-[1px] transition' />
           </div>
         )}
       </div>
