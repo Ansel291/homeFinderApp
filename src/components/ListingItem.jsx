@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('eee')
   //console.log(id)
   return (
     <>
@@ -48,7 +48,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 //to='/'
                 onClick={(e) => {
                   //e.preventDefault()
-                  //e.stopPropagation()
+                  e.stopPropagation()
                   onDelete(id, name)
                 }}
               >
@@ -80,7 +80,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 //to='/'
                 onClick={(e) => {
                   //e.preventDefault()
-                  //e.stopPropagation()
+                  e.stopPropagation()
                   onEdit(id)
                 }}
               >
