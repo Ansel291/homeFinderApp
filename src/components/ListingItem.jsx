@@ -31,42 +31,31 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('dd')
+  console.log('fff')
   //console.log(id)
   return (
     <>
       <div>
         {onDelete && (
-          <IconContext.Provider
-            value={{
-              size: '30px',
+          <div
+            onClick={() => {
+              //e.preventDefault()
+              onDelete(id, name)
             }}
           >
-            <AiFillDelete
-              className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
-              onClick={() => {
-                //e.preventDefault()
-                onDelete(id, name)
-              }}
-            />
-          </IconContext.Provider>
+            <AiFillDelete className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition' />
+          </div>
         )}
         {onEdit && (
-          <IconContext.Provider
-            value={{
-              size: '30px',
+          <div
+            onClick={() => {
+              //e.preventDefault()
+              //e.stopPropagation()
+              onEdit(id)
             }}
           >
-            <AiFillEdit
-              className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
-              //fill='#a7a7a7'
-              onClick={() => {
-                //e.preventDefault()
-                //e.stopPropagation()
-                onEdit(id)
-              }}
-            />
-          </IconContext.Provider>
+            <AiFillEdit className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition' />
+          </div>
         )}
       </div>
       <Link to={`/${type}/${id}`}>
