@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('bbb')
+  console.log('ccc')
   //console.log(id)
   return (
     <>
@@ -43,10 +43,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             }}
           >
             <AiFillDelete
-              className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
-              onMouseEnter={() => setHoverDelete(true)}
-              onMouseLeave={() => setHoverDelete(false)}
-              fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+              className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition'
               onClick={() => {
                 //e.preventDefault()
                 onDelete(id, name)
@@ -63,10 +60,6 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             <AiFillEdit
               className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
               //fill='#a7a7a7'
-              onMouseEnter={() => setHoverEdit(true)}
-              onMouseLeave={() => setHoverEdit(false)}
-              fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-              //onClickCapture={(e) => {
               onClick={() => {
                 //e.preventDefault()
                 //e.stopPropagation()
