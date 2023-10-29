@@ -31,11 +31,12 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('aaa')
+  console.log('ccc')
   //console.log(id)
   return (
     <>
-      <Link to={`/${type}/${id}`}>
+      {/* <Link to={`/${type}/${id}`}> */}
+      <div>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
           {onDelete && (
             <IconContext.Provider
@@ -44,9 +45,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               }}
             >
               <div
+                //to='/'
                 onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
+                  //e.preventDefault()
+                  //e.stopPropagation()
                   onDelete(id, name)
                 }}
               >
@@ -75,9 +77,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               }}
             >
               <div
+                //to='/'
                 onClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
+                  //e.preventDefault()
+                  //e.stopPropagation()
                   onEdit(id)
                 }}
               >
@@ -144,7 +147,8 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             {type === 'rent' && '/ Month'}
           </div>
         </div>
-      </Link>
+      </div>
+      {/*</Link>*/}
     </>
   )
 }
