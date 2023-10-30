@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ddd')
+  console.log('eee')
   //console.log(id)
   return (
     <>
@@ -67,8 +67,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
           </button>
         )}
       </div>
-      {/* <Link to={`/${type}/${id}`}> */}
-      <div>
+      <Link to={`/${type}/${id}`}>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
           <div className=''>
             <img
@@ -114,8 +113,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             {type === 'rent' && '/ Month'}
           </div>
         </div>
-      </div>
-      {/*</Link>*/}
+      </Link>
     </>
   )
 }
