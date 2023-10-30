@@ -120,13 +120,11 @@ function Profile() {
     }))
   }
 
-  const onDelete = async (listingId, e) => {
+  const onDelete = async (listingId) => {
     console.log('Yay you clicked on Delete')
     if (window.confirm('Are you sure you want to delete?')) {
       console.log('you clicked yes')
       await deleteDoc(doc(db, 'listings', listingId))
-      e.preventDefault()
-      e.stopPropogation()
       const updatedListings = listings.filter(
         (listing) => listing.id !== listingId
       )
@@ -135,7 +133,9 @@ function Profile() {
     }
   }
 
-  const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
+  const onEdit = (listingId) => {
+    navigate(`/edit-listing/${listingId}`)
+  }
 
   return (
     <>
