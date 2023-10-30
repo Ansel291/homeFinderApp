@@ -39,10 +39,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onDelete && (
           <button
             className='float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={(e, id, name) => {
-              //e.preventDefault()
-              //e.stopPropagation()
-              onDelete()
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              onDelete(id, name, e)
             }}
           >
             <AiFillDelete />
@@ -51,10 +51,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onEdit && (
           <button
             className='float-left mb-[7.5px] mr-[6px] top-[1px]'
-            onClick={(e, id) => {
-              //e.preventDefault()
-              //e.stopPropagation()
-              onEdit()
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              onEdit(id, e)
             }}
             /*
             onClick={() => {
