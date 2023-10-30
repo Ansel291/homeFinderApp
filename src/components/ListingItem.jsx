@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('bbb')
+  console.log('ccc')
   //console.log(id)
   return (
     <>
@@ -50,23 +50,24 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onEdit && (
           <div
             className='float-left mb-[7.5px] mr-[6px] top-[1px] transition'
-            /*
             onClick={() => {
               //e.preventDefault()
               //e.stopPropagation()
               onEdit(id)
             }}
-            */
+            /*
             onClick={() => {
               //e.preventDefault()
               onDelete(id, name)
             }}
+            */
           >
             <AiFillEdit />
           </div>
         )}
       </div>
-      <Link to={`/${type}/${id}`}>
+      {/* <Link to={`/${type}/${id}`}> */}
+      <div>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
           <div className=''>
             <img
@@ -112,7 +113,8 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             {type === 'rent' && '/ Month'}
           </div>
         </div>
-      </Link>
+      </div>
+      {/*</Link>*/}
     </>
   )
 }
