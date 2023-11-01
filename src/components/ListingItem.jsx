@@ -36,29 +36,6 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
   return (
     <>
       <div>
-        {onDelete && (
-          <button
-            className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={() => {
-              //onPointerEnter={(e) => {
-              //e.persist()
-              /*
-              if (e) {
-                e.preventDefault()
-              }
-              */
-              //e.preventDefault()
-              //e.stopPropagation()
-              onDelete(id, name)
-            }}
-          >
-            <AiFillDelete
-              onMouseEnter={() => setHoverDelete(true)}
-              onMouseLeave={() => setHoverDelete(false)}
-              fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-            />
-          </button>
-        )}
         {onEdit && (
           <button
             className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
@@ -84,6 +61,29 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onMouseEnter={() => setHoverEdit(true)}
               onMouseLeave={() => setHoverEdit(false)}
               fill={hoverEdit ? '#f97316' : '#a7a7a7'}
+            />
+          </button>
+        )}
+        {onDelete && (
+          <button
+            className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
+            onClick={() => {
+              //onPointerEnter={(e) => {
+              //e.persist()
+              /*
+              if (e) {
+                e.preventDefault()
+              }
+              */
+              //e.preventDefault()
+              //e.stopPropagation()
+              onDelete(id, name)
+            }}
+          >
+            <AiFillDelete
+              onMouseEnter={() => setHoverDelete(true)}
+              onMouseLeave={() => setHoverDelete(false)}
+              fill={hoverDelete ? '#f25757' : '#a7a7a7'}
             />
           </button>
         )}
