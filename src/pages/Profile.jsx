@@ -122,7 +122,7 @@ function Profile() {
 
   const onDelete = (listingId) => {
     console.log('Yay you clicked on Delete')
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.alert('Are you sure you want to delete?')) {
       console.log('you clicked yes')
       deleteDoc(doc(db, 'listings', listingId))
       const updatedListings = listings.filter(
