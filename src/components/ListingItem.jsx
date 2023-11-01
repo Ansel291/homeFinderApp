@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ggg')
+  console.log('aaa')
   //console.log(id)
   return (
     <>
@@ -52,7 +52,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onDelete(id, name)
             }}
           >
-            <AiFillDelete />
+            <AiFillDelete
+              onMouseEnter={() => setHoverDelete(true)}
+              onMouseLeave={() => setHoverDelete(false)}
+              fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+            />
           </button>
         )}
         {onEdit && (
@@ -76,7 +80,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             }}
             */
           >
-            <AiFillEdit />
+            <AiFillEdit
+              onMouseEnter={() => setHoverEdit(true)}
+              onMouseLeave={() => setHoverEdit(false)}
+              fill={hoverEdit ? '#f97316' : '#a7a7a7'}
+            />
           </button>
         )}
       </div>
