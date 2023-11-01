@@ -31,19 +31,20 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ddd')
+  console.log('aaa')
   //console.log(id)
   return (
     <>
       <div>
         {onDelete && (
           <button
-            className='float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={(e) => {
+            className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
+            //onClick={(e) => {
+            onPointerEnter={(e) => {
               e.persist()
               //e.preventDefault()
               //e.stopPropagation()
-              onDelete(id, name, e)
+              onDelete(id, name)
             }}
           >
             <AiFillDelete />
@@ -51,11 +52,12 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         )}
         {onEdit && (
           <button
-            className='float-left mb-[7.5px] mr-[6px] top-[1px]'
-            onClick={(e) => {
+            className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
+            //onClick={(e) => {
+            onPointerEnter={(e) => {
               //e.preventDefault()
               //e.stopPropagation()
-              onEdit(id, e)
+              onEdit(id)
             }}
             /*
             onClick={() => {
