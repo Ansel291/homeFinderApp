@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('eee')
+  console.log('fff')
   //console.log(id)
   return (
     <>
@@ -39,14 +39,14 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onEdit && (
           <button
             className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
-            onClick={() => {
+            onClick={(e) => {
               //onPointerEnter={(e) => {
               /*
               if (e) {
                 e.preventDefault()
               }
               */
-              //e.preventDefault()
+              e.preventDefault()
               //e.stopPropagation()
               onEdit(id)
             }}
@@ -67,7 +67,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onDelete && (
           <button
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={() => {
+            onClick={(e) => {
               //onPointerEnter={(e) => {
               //e.persist()
               /*
@@ -75,7 +75,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
                 e.preventDefault()
               }
               */
-              //e.preventDefault()
+              e.preventDefault()
               //e.stopPropagation()
               onDelete(id, name)
             }}
