@@ -83,6 +83,28 @@ function Profile() {
     fetchUserListings()
   }, [auth.currentUser.uid])
 
+  /*
+  useEffect(() => {
+    const onDelete = async (listingId) => {
+      try {
+        console.log('Yay you clicked on Delete with Try')
+        if (window.confirm('Are you sure you want to delete?')) {
+          console.log('you clicked yes')
+          await deleteDoc(doc(db, 'listings', listingId))
+          const updatedListings = listings.filter(
+            (listing) => listing.id !== listingId
+          )
+          setListings(updatedListings)
+          toast.success('Successfull deleted listing')
+        }
+      } catch (error) {
+        console.log(error)
+        toast.error('bla bla bla')
+      }
+    }
+  }, [])
+  */
+
   const onLogout = () => {
     auth.signOut()
     navigate('/')
