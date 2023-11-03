@@ -272,8 +272,8 @@ function Profile() {
                       key={listing.id}
                       listing={listing.data}
                       id={listing.id}
-                      onDelete={() => onDelete(listing.id)}
-                      onEdit={() => onEdit(listing.id)}
+                      onDelete={onDelete}
+                      onEdit={onEdit}
                     />
                   ))}
                 </div>
