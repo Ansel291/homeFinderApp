@@ -163,10 +163,12 @@ function Profile() {
   */
 
   const onDelete = (listingId) => {
-    console.log('Yay you clicked on Delete with Try')
-    if (window.confirm('Are you sure you want to delete?')) {
-      console.log('you clicked yes')
-      /*
+    console.log('onDelete Function is fired')
+    /*
+      if (window.confirm('Are you sure you want to delete?')) {
+        console.log('you clicked yes')
+        */
+    /*
         await deleteDoc(doc(db, 'listings', listingId))
         const updatedListings = listings.filter(
           (listing) => listing.id !== listingId
@@ -174,7 +176,9 @@ function Profile() {
         setListings(updatedListings)
         toast.success('Successfull deleted listing')
         */
-    }
+    /*
+      }
+      */
   }
 
   const onEdit = (listingId) => {
@@ -272,8 +276,8 @@ function Profile() {
                       key={listing.id}
                       listing={listing.data}
                       id={listing.id}
-                      onDelete={onDelete}
-                      onEdit={onEdit}
+                      onDelete={() => onDelete(listing.id)}
+                      onEdit={() => onEdit(listing.id)}
                     />
                   ))}
                 </div>
