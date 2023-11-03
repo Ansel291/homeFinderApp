@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ggg')
+  console.log('bbb')
   //console.log(id)
   return (
     <>
@@ -39,23 +39,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onEdit && (
           <button
             className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
-            onClick={(e) => {
-              //onPointerEnter={(e) => {
-              /*
-              if (e) {
-                e.preventDefault()
-              }
-              */
-              e.preventDefault()
-              //e.stopPropagation()
+            onClick={() => {
               onEdit(id)
             }}
-            /*
-            onClick={() => {
-              //e.preventDefault()
-              onDelete(id, name)
-            }}
-            */
+
+            //onClick={onEdit(id)}
           >
             <AiFillEdit
               onMouseEnter={() => setHoverEdit(true)}
@@ -67,18 +55,13 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onDelete && (
           <button
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={(e) => {
-              //onPointerEnter={(e) => {
-              //e.persist()
-              /*
-              if (e) {
-                e.preventDefault()
-              }
-              */
-              e.preventDefault()
+            onClick={() => {
+              //e.preventDefault()
               //e.stopPropagation()
               onDelete(id, name)
             }}
+
+            //onClick={onDelete(id, name)}
           >
             <AiFillDelete
               onMouseEnter={() => setHoverDelete(true)}
