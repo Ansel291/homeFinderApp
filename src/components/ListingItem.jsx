@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ddd')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
@@ -55,20 +55,10 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         {onDelete && (
           <button
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
-            /*
             onClick={() => {
               //e.preventDefault()
               //e.stopPropagation()
               onDelete(id, name)
-            }}
-            */
-
-            onClick={() => {
-              //e.preventDefault()
-              //e.stopPropagation()
-              setTimeout(() => {
-                onDelete(id, name)
-              }, '1000')
             }}
 
             //onClick={onDelete(id, name)}
