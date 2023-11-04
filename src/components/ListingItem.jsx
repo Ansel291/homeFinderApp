@@ -19,7 +19,6 @@ import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
 function ListingItem({ listing, id, onDelete, onEdit }) {
   const [hoverDelete, setHoverDelete] = useState(false)
   const [hoverEdit, setHoverEdit] = useState(false)
-  const [triggeredConfirm, setTriggeredConfirm] = useState(false)
   const {
     imgUrls,
     name,
@@ -32,19 +31,22 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
+  console.log('ddd')
   //console.log(id)
   return (
     <>
       <div>
         {onEdit && (
-          <button
+          <Link
             className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
+            //to='/edit-listing/${listingId}'
+            to={`/edit-listing/${id}`}
+            /*
             onClick={(e) => {
               e.stopPropagation()
-              setTriggeredConfirm((prevState) => !prevState)
               onEdit(id)
             }}
+            */
 
             //onClick={onEdit(id)}
           >
@@ -53,17 +55,16 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onMouseLeave={() => setHoverEdit(false)}
               fill={hoverEdit ? '#f97316' : '#a7a7a7'}
             />
-          </button>
+          </Link>
         )}
         {onDelete && (
-          <button
-            //to='/profile'
+          <Link
+            to='/profile'
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
             onClick={(e) => {
               //e.preventDefault()
               e.stopPropagation()
               //let result = window.confirm('Press a button ccc!')
-              setTriggeredConfirm((prevState) => !prevState)
               onDelete(id, name)
             }}
 
@@ -74,7 +75,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onMouseLeave={() => setHoverDelete(false)}
               fill={hoverDelete ? '#f25757' : '#a7a7a7'}
             />
-          </button>
+          </Link>
         )}
       </div>
       {/* <Link to={`/${type}/${id}`}> */}

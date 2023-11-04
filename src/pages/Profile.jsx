@@ -143,57 +143,16 @@ function Profile() {
     }))
   }
 
-  /*
   const onDelete = async (listingId) => {
-    try {
-      console.log('Yay you clicked on Delete with Try')
-      if (window.confirm('Are you sure you want to delete?')) {
-        console.log('you clicked yes')
-        await deleteDoc(doc(db, 'listings', listingId))
-        const updatedListings = listings.filter(
-          (listing) => listing.id !== listingId
-        )
-        setListings(updatedListings)
-        toast.success('Successfull deleted listing')
-      }
-    } catch (error) {
-      console.log(error)
-      toast.error('bla bla bla')
-    }
-  }
-  */
-
-  const onDelete = (listingId) => {
-    console.log('onDelete Function is fired')
-    toast.success('Successfull deleted listing')
     if (window.confirm('Are you sure you want to delete?')) {
-    } else {
-      console.log('page has reloaded')
-      //setTriggeredConfirm(true)
-      //window.location.reload()
+      console.log('you clicked yes')
+      await deleteDoc(doc(db, 'listings', listingId))
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId
+      )
+      setListings(updatedListings)
+      toast.success('Successfull deleted listing')
     }
-
-    /*
-    let shouldDelete = confirm(
-      'Do you really want to delete this awesome Medium article?'
-    )
-    
-    toast.success('Successfull deleted listing')
-    
-      if (window.confirm('Are you sure you want to delete?')) {
-        console.log('you clicked yes')
-    */
-    /*
-        await deleteDoc(doc(db, 'listings', listingId))
-        const updatedListings = listings.filter(
-          (listing) => listing.id !== listingId
-        )
-        setListings(updatedListings)
-        toast.success('Successfull deleted listing')
-        */
-    /*
-      }
-      */
   }
 
   const onEdit = (listingId) => {
