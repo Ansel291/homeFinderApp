@@ -46,7 +46,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               }}
             >
               <AiFillDelete
-                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
+                className='cursor-pointer relative float-right ml-[10px] mb-[10px] transition z-[99999999]'
                 onMouseEnter={() => setHoverDelete(true)}
                 onMouseLeave={() => setHoverDelete(false)}
                 fill={hoverDelete ? '#f25757' : '#a7a7a7'}
