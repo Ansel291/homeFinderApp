@@ -166,6 +166,8 @@ function Profile() {
     console.log('onDelete Function is fired')
     toast.success('Successfull deleted listing')
     if (window.confirm('Are you sure you want to delete?')) {
+    } else {
+      console.log('page has reloaded')
       window.location.reload()
     }
     /*
