@@ -35,7 +35,7 @@ function Profile() {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
-  const [triggeredConfirm, setTriggeredConfirm] = useState(false)
+  //const [triggeredConfirm, setTriggeredConfirm] = useState(false)
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -169,7 +169,7 @@ function Profile() {
     if (window.confirm('Are you sure you want to delete?')) {
     } else {
       console.log('page has reloaded')
-      setTriggeredConfirm(true)
+      //setTriggeredConfirm(true)
       //window.location.reload()
     }
 
