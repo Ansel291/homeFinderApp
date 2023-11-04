@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('aaa')
   //console.log(id)
   return (
     <>
@@ -53,12 +53,13 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
           </button>
         )}
         {onDelete && (
-          <button
+          <Link
+            to='/'
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
             onClick={() => {
               //e.preventDefault()
               //e.stopPropagation()
-              let result = window.confirm('Press a button!')
+              let result = window.confirm('Press a button aaa!')
               //onDelete(id, name)
             }}
 
@@ -69,7 +70,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
               onMouseLeave={() => setHoverDelete(false)}
               fill={hoverDelete ? '#f25757' : '#a7a7a7'}
             />
-          </button>
+          </Link>
         )}
       </div>
       {/* <Link to={`/${type}/${id}`}> */}
