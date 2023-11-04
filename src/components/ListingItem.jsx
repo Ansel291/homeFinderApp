@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
@@ -58,10 +58,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             onClick={() => {
               //e.preventDefault()
               //e.stopPropagation()
-              if (window.confirm('Are you sure you want to delete?')) {
-                console.log('you clicked yes')
-                onDelete(id, name)
-              }
+              onDelete(id, name)
             }}
 
             //onClick={onDelete(id, name)}
