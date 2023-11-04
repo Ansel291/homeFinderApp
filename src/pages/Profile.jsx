@@ -164,9 +164,11 @@ function Profile() {
 
   const onDelete = (listingId) => {
     console.log('onDelete Function is fired')
-    let shouldDelete = window.confirm(
+    /*
+    let shouldDelete = confirm(
       'Do you really want to delete this awesome Medium article?'
     )
+    */
     //toast.success('Successfull deleted listing')
     /*
       if (window.confirm('Are you sure you want to delete?')) {
