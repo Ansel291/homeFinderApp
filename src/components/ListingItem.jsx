@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ccc')
+  console.log('ddd')
   //console.log(id)
   return (
     <>
@@ -60,8 +60,8 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             onClick={(e) => {
               //e.preventDefault()
               e.stopPropagation()
-              let result = window.confirm('Press a button ccc!')
-              //onDelete(id, name)
+              //let result = window.confirm('Press a button ccc!')
+              onDelete(id, name)
             }}
 
             //onClick={onDelete(id, name)}
