@@ -165,6 +165,8 @@ function Profile() {
   const onDelete = (listingId) => {
     console.log('onDelete Function is fired')
     toast.success('Successfull deleted listing')
+    if (window.confirm('Are you sure you want to delete?')) {
+    }
     /*
     let shouldDelete = confirm(
       'Do you really want to delete this awesome Medium article?'
@@ -174,7 +176,7 @@ function Profile() {
     
       if (window.confirm('Are you sure you want to delete?')) {
         console.log('you clicked yes')
-        */
+    */
     /*
         await deleteDoc(doc(db, 'listings', listingId))
         const updatedListings = listings.filter(
