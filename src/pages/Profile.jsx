@@ -35,6 +35,7 @@ function Profile() {
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
+  const [triggeredConfirm, setTriggeredConfirm] = useState(false)
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -168,8 +169,10 @@ function Profile() {
     if (window.confirm('Are you sure you want to delete?')) {
     } else {
       console.log('page has reloaded')
-      window.location.reload()
+      setTriggeredConfirm(true)
+      //window.location.reload()
     }
+
     /*
     let shouldDelete = confirm(
       'Do you really want to delete this awesome Medium article?'
