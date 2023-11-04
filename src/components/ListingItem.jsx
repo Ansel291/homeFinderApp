@@ -1,3 +1,5 @@
+// Saving Original ListingItem.jsx file w/ Links and onClick on ReactIcons Component
+
 // import react
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -31,56 +33,52 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ddd')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
-      <div>
-        {onEdit && (
-          <Link
-            className='cursor-pointer float-left mb-[7.5px] mr-[6px] top-[1px]'
-            //to='/edit-listing/${listingId}'
-            to={`/edit-listing/${id}`}
-            /*
-            onClick={(e) => {
-              e.stopPropagation()
-              onEdit(id)
-            }}
-            */
-
-            //onClick={onEdit(id)}
-          >
-            <AiFillEdit
-              onMouseEnter={() => setHoverEdit(true)}
-              onMouseLeave={() => setHoverEdit(false)}
-              fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-            />
-          </Link>
-        )}
-        {onDelete && (
-          <Link
-            to='/profile'
-            className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
-            onClick={(e) => {
-              //e.preventDefault()
-              e.stopPropagation()
-              //let result = window.confirm('Press a button ccc!')
-              onDelete(id, name)
-            }}
-
-            //onClick={onDelete(id, name)}
-          >
-            <AiFillDelete
-              onMouseEnter={() => setHoverDelete(true)}
-              onMouseLeave={() => setHoverDelete(false)}
-              fill={hoverDelete ? '#f25757' : '#a7a7a7'}
-            />
-          </Link>
-        )}
-      </div>
-      {/* <Link to={`/${type}/${id}`}> */}
-      <div>
+      <Link to={`/${type}/${id}`}>
         <div className='bg-white shadow-1 p-[20px] rounded-lg w-full max-w-[352px] mx-auto hover:shadow-2xl transition'>
+          {onDelete && (
+            <IconContext.Provider
+              value={{
+                size: '20px',
+              }}
+            >
+              <AiFillDelete
+                className='cursor-pointer relative float-right ml-[20px] mb-[10px] transition z-[99999999]'
+                onMouseEnter={() => setHoverDelete(true)}
+                onMouseLeave={() => setHoverDelete(false)}
+                fill={hoverDelete ? '#f25757' : '#a7a7a7'}
+                onClick={(e) => {
+                  e.preventDefault()
+                  onDelete(id, name)
+                }}
+              />
+            </IconContext.Provider>
+          )}
+          {onEdit && (
+            <IconContext.Provider
+              value={{
+                size: '20px',
+              }}
+            >
+              <AiFillEdit
+                className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
+                //fill='#a7a7a7'
+                onMouseEnter={() => setHoverEdit(true)}
+                onMouseLeave={() => setHoverEdit(false)}
+                fill={hoverEdit ? '#f97316' : '#a7a7a7'}
+                //onClickCapture={(e) => {
+                onClick={(e) => {
+                  e.preventDefault()
+                  //e.stopPropagation()
+                  onEdit(id)
+                }}
+              />
+            </IconContext.Provider>
+          )}
+
           <div className=''>
             <img
               className='mb-[32px] object-cover min-h-[312px] lg:min-h-[243px] xl:min-h-[312px]'
@@ -125,8 +123,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             {type === 'rent' && '/ Month'}
           </div>
         </div>
-      </div>
-      {/*</Link>*/}
+      </Link>
     </>
   )
 }
