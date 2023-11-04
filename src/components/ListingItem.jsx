@@ -31,7 +31,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('aaa')
+  console.log('bbb')
   //console.log(id)
   return (
     <>
@@ -54,12 +54,12 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
         )}
         {onDelete && (
           <Link
-            to='/'
+            to='/profile'
             className='cursor-pointer float-right ml-[20px] mb-[10px] mr-[50px]'
             onClick={() => {
               //e.preventDefault()
               //e.stopPropagation()
-              let result = window.confirm('Press a button aaa!')
+              let result = window.confirm('Press a button bbb!')
               //onDelete(id, name)
             }}
 
