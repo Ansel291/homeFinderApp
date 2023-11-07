@@ -33,7 +33,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
+  console.log('ggg')
   //console.log(id)
   return (
     <>
