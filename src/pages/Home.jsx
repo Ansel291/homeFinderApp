@@ -10,7 +10,7 @@ import ListingItem from '../components/ListingItem'
 import Spinner from '../components/Spinner'
 import Footer from '../components/Footer'
 */
-import ListingItem from '../components/ListingItem'
+
 import Spinner from '../components/Spinner'
 import Footer from '../components/Footer'
 
@@ -18,6 +18,7 @@ import Footer from '../components/Footer'
 import { ListingContext } from '../context/ListingContext'
 
 const Hero = lazy(() => import('../components/Hero'))
+const ListingItem = lazy(() => import('../components/ListingItem'))
 
 function Home() {
   const {
