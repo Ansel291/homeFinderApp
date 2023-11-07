@@ -26,6 +26,8 @@ function Search() {
       <PriceRangeDropdown />
       <button
         id='searchButton'
+        title='Search'
+        aria-label='Aria Search'
         onClick={() => handleClick()}
         className='bg-[#f97316] hover:bg-[#ea580c] transition w-full lg:max-w-[162px] h-[64px] rounded-lg flex justify-center items-center text-lg'
       >
