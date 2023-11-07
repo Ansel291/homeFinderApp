@@ -35,7 +35,7 @@ function Header() {
             Sign Up
           </Link>
           */}
-          <Link to='/profile'>
+          <Link to='/profile' aria-label='Login to Profile'>
             <PersonCircleIcon
               className='w-[30px] sm:w-[34px] h-[30px] sm:h-[34px] transition'
               onMouseEnter={() => setHover(true)}
