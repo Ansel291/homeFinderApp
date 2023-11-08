@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      .hero-container {
+        background: url(%PUBLIC_URL%/heroImageBwMob.webp) no-repeat center/cover;
+      }
+      @media (min-width: 415px) {
+        .hero-container {
+          background: url(%PUBLIC_URL%/heroImageBwTab.webp) no-repeat
+            center/cover;
+        }
+      }
+      @media (min-width: 768px) {
+        .hero-container {
+          background: url(%PUBLIC_URL%/heroImageBwDesk.webp) no-repeat
+            center/cover;
+        }
+      }
+    </style>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

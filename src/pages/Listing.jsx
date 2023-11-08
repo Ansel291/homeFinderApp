@@ -30,6 +30,11 @@ import Footer from '../components/Footer'
 import { BiBed, BiBath, BiArea } from 'react-icons/bi'
 import { TbParking } from 'react-icons/tb'
 
+/*
+const Swiper = lazy(() => import('swiper/react'))
+const SwiperSlide = lazy(() => import('swiper/react'))
+*/
+
 function Listing() {
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(true)
