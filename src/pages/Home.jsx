@@ -1,23 +1,24 @@
-import { useContext, lazy } from 'react'
+import { useContext } from 'react'
+//import { useContext, lazy } from 'react'
 
 //import listing context provider
 //import ListingContextProvider from '../context/ListingContext'
 
 // import components
-/*
 import Hero from '../components/Hero'
 import ListingItem from '../components/ListingItem'
 import Spinner from '../components/Spinner'
 import Footer from '../components/Footer'
-*/
 
 // import context
 import { ListingContext } from '../context/ListingContext'
 
+/*
 const Hero = lazy(() => import('../components/Hero'))
 const ListingItem = lazy(() => import('../components/ListingItem'))
 const Spinner = lazy(() => import('../components/Spinner'))
 const Footer = lazy(() => import('../components/Footer'))
+*/
 
 function Home() {
   const {
