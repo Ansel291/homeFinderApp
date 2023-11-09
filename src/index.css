@@ -159,21 +159,7 @@ code {
 .profile {
   margin: 16px;
 }
-/*
-.profileName,
-.profileEmail,
-.profileAddress,
-.profileAddressActive,
-.profileEmailActive,
-.profileNameActive {
-  all: unset;
-  background: #fff;
-  margin: 0.3rem 0;
-  font-weight: 600;
-  width: 100%;
-  padding: 0 10px;
-}
-*/
+
 .profileNameActive,
 .profileEmailActive {
   background-color: #f9731642;
