@@ -35,7 +35,7 @@ const ListingContextProvider = ({ children }) => {
         //console.log(listingsRef)
 
         // Create a query
-        const q = query(listingsRef, orderBy('timestamp', 'desc'), limit(10))
+        const q = query(listingsRef, orderBy('timestamp', 'desc'), limit(9))
 
         // Execute query
         const querySnap = await getDocs(q)
@@ -114,7 +114,7 @@ const ListingContextProvider = ({ children }) => {
         listingsRef,
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(9)
       )
 
       // Execute query
