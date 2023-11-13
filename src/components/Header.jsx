@@ -14,12 +14,12 @@ function Header() {
     <header className='py-6 sm:py-5 border-b'>
       <div className='container mx-auto flex justify-between items-center'>
         {/* logo */}
-        <Link to='/' className='flex gap-[2px] sm:gap-[7px] items-center'>
+        <a href='/' className='flex gap-[2px] sm:gap-[7px] items-center'>
           <div className='header-logo'></div>
           <div className='text-[18px] sm:text-[24px] font-[600]'>
             HomeFinder
           </div>
-        </Link>
+        </a>
         {/* buttons */}
         {/* <div className='flex items-center gap-[14px] sm:gap-6 text-[16px]'> */}
 
