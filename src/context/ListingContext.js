@@ -29,6 +29,7 @@ const ListingContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchListings = async () => {
+      console.log('fetchListings fired')
       try {
         // Get reference
         const listingsRef = collection(db, 'listings')

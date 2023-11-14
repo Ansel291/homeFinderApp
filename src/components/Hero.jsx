@@ -11,7 +11,6 @@ function Hero() {
           </h1>
           <Search />
         </div>
-        <img src='../assets/webp/heroImageBwTab.webp' height='200' />
       </div>
     </section>
   )

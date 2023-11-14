@@ -49,20 +49,21 @@ function Home() {
                 </div>
               </div>
             </section>
+            {lastFetchedListing && (
+              <p
+                className='cursor-pointer w-[128px] m-auto text-center py-[4px] px-[8px] bg-black text-white font-[600] rounded-[16px] opacity-[.7]'
+                onClick={onFetchMoreListings}
+              >
+                Load More
+              </p>
+            )}
           </>
         ) : (
-          <p className='text-center text-[15px] text-gray-800'>
+          <p className='text-center text-[15px] text-gray-800 md:mt-[-20px]'>
             Sorry, no listings at this time
           </p>
         )}
-        {lastFetchedListing && (
-          <p
-            className='cursor-pointer w-[128px] m-auto text-center py-[4px] px-[8px] bg-black text-white font-[600] rounded-[16px] opacity-[.7]'
-            onClick={onFetchMoreListings}
-          >
-            Load More
-          </p>
-        )}
+
         <Footer />
       </div>
     </>
