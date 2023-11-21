@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# HomeFinder App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview:
 
-## Available Scripts
+This is a React Real Estate App allows visitors that are sellers to list their properties and visitors that are buyers/renters to view property listings. Sellers can create a profile, Create a property listing, Edit and Delete their listings.
 
-In the project directory, you can run:
+## Tech Stack:
 
-### `npm start`
+| Development:  | NPM Packages:     | Deployment: |
+| ------------- | ----------------- | ----------- |
+| React.js      | create-react-app  | Vercel      |
+| Tailwind.css  | react-router-dom  |             |
+| Firebase      | firebase          |             |
+| Leaflet       | react-leaflet     |             |
+| HeadlessUI    | @headlessui/react |             |
+| Toastify      | react-toastify    |             |
+| Swiper        | swiper            |             |
+| HTML5         |                   |             |
+| Visual Studio |                   |             |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployment / Production URL:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://home-finder-app-ja.vercel.app/
 
-### `npm test`
+## Design:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Layout:
 
-### `npm run build`
+![App Screenshot](https://i.imgur.com/t5SUZSc.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Milestones:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Components
+- State (Component & App Level)
+- Hooks (ie: useState, useEffect, useContext, useLocation, useNavigate, createContext, useRef)
+- Firebase & Firestore
+- API Calls
+- Routing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `npm run eject`
+#### Install Dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```http
+  npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```http
+  npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Inspiration:
 
-## Learn More
+This app is based on Traversy Media's tutorial
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [React Front To Back 2022 - House Marketplace](https://www.udemy.com/course/react-front-to-back-2022/learn/lecture/29769046#overview)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Upcoming Improvements:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- When creating a property listing, consolidating the form so that the visitor does not have to enter the State twice in the listing - [ 1) in the Listing State Dropdown 2) when entering the property address ]. Doing so will improve the visitor's User Experience.
