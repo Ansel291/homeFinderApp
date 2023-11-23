@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from 'react'
 
 // import icons
 import { IconContext } from 'react-icons/lib'
-//import { RiHome5Line, RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri'
 import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri'
 import { MdHome } from 'react-icons/md'
 
@@ -15,8 +14,6 @@ import { ListingContext } from '../context/ListingContext'
 function CategoryDropdown() {
   const { category, setCategory, categories, listings } =
     useContext(ListingContext)
-  //console.log(categories)
-  //console.log(listings)
 
   const [isOpen, setIsOpen] = useState(false)
 
