@@ -1,22 +1,12 @@
-// Saving Original ListingItem.jsx file w/ Links and onClick on ReactIcons Component
-
 // import react
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-// import context
-//import { ListingContext } from '../context/ListingContext'
-
 // import icons
-//import { IoBedSharp } from 'react-icons/io'
 import { IconContext } from 'react-icons/lib'
 import { BiBed, BiBath, BiArea } from 'react-icons/bi'
 import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
-//import { IoBedSharp } from 'react-icons/io'
-
-//import { MdBathtub } from 'react-icons/md'
-//import { RxDimensions } from 'react-icons/rx'
 
 function ListingItem({ listing, id, onDelete, onEdit }) {
   const [hoverDelete, setHoverDelete] = useState(false)
@@ -33,8 +23,7 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('ggg')
-  //console.log(id)
+  console.log('eee')
   return (
     <>
       <Link to={`/${type}/${id}`}>
@@ -65,14 +54,11 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
             >
               <AiFillEdit
                 className='cursor-pointer relative float-right mb-[7.5px] mr-[6px] top-[1px] transition'
-                //fill='#a7a7a7'
                 onMouseEnter={() => setHoverEdit(true)}
                 onMouseLeave={() => setHoverEdit(false)}
                 fill={hoverEdit ? '#f97316' : '#a7a7a7'}
-                //onClickCapture={(e) => {
                 onClick={(e) => {
                   e.preventDefault()
-                  //e.stopPropagation()
                   onEdit(id)
                 }}
               />
