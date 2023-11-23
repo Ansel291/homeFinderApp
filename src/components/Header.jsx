@@ -2,9 +2,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-// import Firebase
-//import { getAuth } from 'firebase/auth'
-
 // import components
 import { ReactComponent as PersonCircleIcon } from '../assets/svg/personCircle.svg'
 
@@ -20,21 +17,8 @@ function Header() {
             HomeFinder
           </div>
         </a>
-        {/* buttons */}
-        {/* <div className='flex items-center gap-[14px] sm:gap-6 text-[16px]'> */}
 
         <div className=''>
-          {/*
-            <Link className='hover:text-orange-500 transition' to='/sign-in'>
-            Sign In
-          </Link>
-          <Link
-            className='bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition'
-            to='/sign-up'
-          >
-            Sign Up
-          </Link>
-          */}
           <Link to='/profile' aria-label='Login to Profile'>
             <PersonCircleIcon
               className='w-[30px] sm:w-[34px] h-[30px] sm:h-[34px] transition'
