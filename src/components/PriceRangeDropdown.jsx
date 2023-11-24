@@ -2,13 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 
 // import icons
 import { IconContext } from 'react-icons/lib'
-//import { RiWallet3Line, RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri'
 import { RiArrowUpSLine, RiArrowDownSLine } from 'react-icons/ri'
 import { BsWalletFill } from 'react-icons/bs'
-//import { BiSolidWallet } from 'react-icons/bi'
-//import { FaWallet } from 'react-icons/fa'
-//import { IoWallet } from 'react-icons/io'
-//import { PiWalletFill } from 'react-icons/pi'
 
 // import headless ui
 import { Menu } from '@headlessui/react'
@@ -18,10 +13,6 @@ import { ListingContext } from '../context/ListingContext'
 
 function PriceRangeDropdown() {
   const { price, setPrice, listings } = useContext(ListingContext)
-  //console.log(price)
-  //console.log(price.value)
-  //console.log(listings)
-
   const [isOpen, setIsOpen] = useState(false)
 
   const prices = [
@@ -83,7 +74,6 @@ function PriceRangeDropdown() {
 
       <Menu.Items onClick={() => setIsOpen(!isOpen)} className='dropdown-menu'>
         {prices.map((price, index) => {
-          //console.log(price.value)
           return (
             <Menu.Item
               onClick={() => setPrice(price.value)}

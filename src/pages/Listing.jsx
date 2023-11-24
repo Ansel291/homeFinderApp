@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 
 // import leaflet
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-//import * as L from 'leaflet'
 
 // import Swiper
 import { Navigation, Pagination, A11y } from 'swiper/modules'
@@ -14,8 +13,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-//import 'swiper/css/bundle'
-//import 'swiper/css/scrollbar'
 
 // import firebase
 import { getDoc, doc } from 'firebase/firestore'
@@ -30,49 +27,20 @@ import Footer from '../components/Footer'
 import { BiBed, BiBath, BiArea } from 'react-icons/bi'
 import { TbParking } from 'react-icons/tb'
 
-/*
-const Swiper = lazy(() => import('swiper/react'))
-const SwiperSlide = lazy(() => import('swiper/react'))
-*/
-
 function Listing() {
   const [listing, setListing] = useState(null)
   const [loading, setLoading] = useState(true)
-  /*
-  const [shareLinkCopied, setShareLinkCopied] = useState(false)
-  */
-
-  /*
-  const LeafIcon = L.Icon.extend({
-    options: {},
-  })
-  //console.log(LeafIcon)
-
-  const orangeIcon = new LeafIcon({
-    iconUrl: 'https://i.imgur.com/U3T8DV0.png',
-  })
-  //console.log(orangeIcon)
-
-  const [icon, setIcon] = useState(orangeIcon)
-  */
 
   // initialize
   const navigate = useNavigate()
   const params = useParams()
 
   useEffect(() => {
-    //console.log('useEffect loaded')
-
     const fetchListing = async () => {
-      console.log('fetchListing function loaded')
-
       const docRef = doc(db, 'listings', params.id)
       const docSnap = await getDoc(docRef)
 
-      //console.log(docRef)
-      //const docSnap =
       if (docSnap.exists()) {
-        console.log(docSnap.data())
         setListing(docSnap.data())
         setLoading(false)
       }
@@ -88,26 +56,6 @@ function Listing() {
     <>
       <div>
         <section className='container mx-auto'>
-          {/*
-        <div
-          className='cursor-pointer fixed bottom-[3%] right-[8%] z-[2] bg-[#f97316] rounded-[50%] w-[48px] h-[48px] flex justify-center items-center'
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href)
-            setShareLinkCopied(true)
-            setTimeout(() => {
-              setShareLinkCopied(false)
-            }, 2000)
-          }}
-        >
-          <GiShare />
-        </div>
-
-        {shareLinkCopied && (
-          <p className='fixed top-[9%] right-[5%] z-[2] bg-[#fff] rounded-[16px] py-[8px] px-[16px] font-[600]'>
-            Link Copied!
-          </p>
-        )}
-        */}
           <div className='mt-[32.5px] mb-[16px] flex flex-col lg:flex-row lg:items-center lg:justify-between'>
             <div className='lg:max-w-[400px]'>
               <h2 className='text-[24px] font-[600] leading-[30px] mb-[12px] lg:mb-[10px]'>
@@ -268,21 +216,11 @@ function Listing() {
                       listing.geolocation.lat,
                       listing.geolocation.lng,
                     ]}
-                    //icon={icon}
                   >
                     <Popup>{listing.address}</Popup>
                   </Marker>
                 </MapContainer>
               </div>
-
-              {/* {auth.currentUser?.uid !== listing.userRef && (
-              <Link
-                to={`/contact/${listing.userRef}?listingName=${listing.name}`}
-                className='primary-button hover:bg-[#ea580c] transition'
-              >
-                Contact Landlord
-              </Link>
-            )} */}
 
               <Link
                 to={`/contact/${listing.userRef}?listingName=${listing.name}`}

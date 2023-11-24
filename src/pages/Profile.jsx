@@ -24,18 +24,14 @@ import ListingItem from '../components/ListingItem'
 import Footer from '../components/Footer'
 
 // import icons
-//import { IoMdHome } from 'react-icons/io'
-//import { FiChevronRight } from 'react-icons/fi'
 import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg'
 import homeIcon from '../assets/svg/homeIcon.svg'
 
 function Profile() {
-  //console.log('1')
   const auth = getAuth()
   const [loading, setLoading] = useState(true)
   const [listings, setListings] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
-  //const [triggeredConfirm, setTriggeredConfirm] = useState(false)
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -43,17 +39,7 @@ function Profile() {
 
   const { name, email } = formData
 
-  //console.log(formData)
-
   const navigate = useNavigate()
-
-  /*
-  const auth = getAuth()
-  useEffect(() => {
-    //console.log(auth.currentUser)
-    setFormData(auth.currentUser)
-  }, [auth.currentUser])
-  */
 
   useEffect(() => {
     const fetchUserListings = async () => {
@@ -64,10 +50,8 @@ function Profile() {
         where('userRef', '==', auth.currentUser.uid),
         orderBy('timestamp', 'desc')
       )
-      //console.log(q)
 
       const querySnap = await getDocs(q)
-      //console.log(querySnap)
 
       let listings = []
 
@@ -84,35 +68,12 @@ function Profile() {
     fetchUserListings()
   }, [auth.currentUser.uid])
 
-  /*
-  useEffect(() => {
-    const onDelete = async (listingId) => {
-      try {
-        console.log('Yay you clicked on Delete with Try')
-        if (window.confirm('Are you sure you want to delete?')) {
-          console.log('you clicked yes')
-          await deleteDoc(doc(db, 'listings', listingId))
-          const updatedListings = listings.filter(
-            (listing) => listing.id !== listingId
-          )
-          setListings(updatedListings)
-          toast.success('Successfull deleted listing')
-        }
-      } catch (error) {
-        console.log(error)
-        toast.error('bla bla bla')
-      }
-    }
-  }, [])
-  */
-
   const onLogout = () => {
     auth.signOut()
     navigate('/')
   }
 
   const onSubmit = async () => {
-    //console.log('1 2 3')
     try {
       //  If Stored Name doesn't match Updated Name in input field
       if (auth.currentUser.displayName !== name) {
@@ -124,7 +85,6 @@ function Profile() {
         // Update in firestore
         const userRef = doc(db, 'users', auth.currentUser.uid)
         await updateDoc(userRef, {
-          //name: name
           name,
         })
 
@@ -145,7 +105,6 @@ function Profile() {
 
   const onDelete = async (listingId) => {
     if (window.confirm('Are you sure you want to delete?')) {
-      console.log('you clicked yes')
       await deleteDoc(doc(db, 'listings', listingId))
       const updatedListings = listings.filter(
         (listing) => listing.id !== listingId
@@ -187,7 +146,6 @@ function Profile() {
               </p>
             </div>
 
-            {/* <div className='rounded-[3rem] max-w-[500px] p-[16px] shadow-1'> */}
             <div className='max-w-[500px]'>
               <form className='mb-[32px]'>
                 <input
@@ -212,24 +170,6 @@ function Profile() {
                   value={email}
                   onChange={onChange}
                 />
-                {/*}
-            <input
-              type='text'
-              id='name'
-              className={!changeDetails ? 'profileName' : 'profileNameActive'}
-              disabled={!changeDetails}
-              value={name}
-              onChange={onChange}
-            />
-            <input
-              type='text'
-              id='email'
-              className={!changeDetails ? 'profileEmail' : 'profileEmailActive'}
-              disabled={!changeDetails}
-              value={email}
-              onChange={onChange}
-            />
-            */}
               </form>
             </div>
             <Link
@@ -271,10 +211,6 @@ function Profile() {
       <Footer />
     </>
   )
-
-  /*
-  return formData ? <h1>{formData.name}</h1> : 'Not logged in'
-  */
 }
 
 export default Profile

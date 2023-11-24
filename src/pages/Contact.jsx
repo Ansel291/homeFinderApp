@@ -14,16 +14,13 @@ function Contact() {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const params = useParams()
-  console.log(params)
 
   useEffect(() => {
     const getLandlord = async () => {
       const docRef = doc(db, 'users', params.landlordId)
       const docSnap = await getDoc(docRef)
 
-      //console.log(docSnap.data())
       if (docSnap.exists()) {
-        //console.log('Yay the docSnap exists!')
         setLandlord(docSnap.data())
       } else {
         // This error will appear for listings where a landlord no longer exists
@@ -65,19 +62,6 @@ function Contact() {
                     onChange={onChange}
                   ></textarea>
                 </div>
-                {/*
-      <div
-        onClick={() => {
-          console.log(
-            landlord.email,
-            searchParams.get('listingName'),
-            message
-          )
-        }}
-      >
-        Click me
-      </div>
-      */}
                 <a
                   href={`mailto:${landlord.email}?Subject=${searchParams.get(
                     'listingName'

@@ -313,23 +313,6 @@ code {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
-/*
-.hero-container {
-  background: url(./assets/webp/heroImageBwMob.webp) no-repeat center/cover;
-}
-*/
-
-/*
-.hero-container-2 {
-  background: url(./assets/jpg/heroImageBw.jpg) no-repeat center/cover;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url(./assets/jpg/heroImageBw.jpg);
-}
-*/
-
 /* Leaflet */
 .leaflet-marker-icon {
   margin-left: -12px;
@@ -389,13 +372,6 @@ code {
     transform: rotate(360deg);
   }
 }
-/*
-@media (min-width: 415px) {
-  .hero-container {
-    background: url(./assets/webp/heroImageBwTab.webp) no-repeat center/cover;
-  }
-}
-*/
 
 @media (min-width: 640px) {
   .header-logo {
@@ -416,14 +392,6 @@ code {
     height: 175px;
   }
 }
-
-/*
-@media (min-width: 768px) {
-  .hero-container {
-    background: url(./assets/webp/heroImageBwDesk.webp) no-repeat center/cover;
-  }
-}
-*/
 
 @media (min-width: 1024px) {
   /* Pages */

@@ -8,16 +8,13 @@ import { ListingContext } from '../context/ListingContext'
 import StateDropdown from './StateDropdown'
 import CategoryDropdown from './CategoryDropdown'
 import PriceRangeDropdown from './PriceRangeDropdown'
-//import PropertyDropdown from './PropertyDropdown'
 
 // import icons
 import { IconContext } from 'react-icons/lib'
 import { BiSearch } from 'react-icons/bi'
 
 function Search() {
-  //const { listings } = useContext(ListingContext)
   const { handleClick } = useContext(ListingContext)
-  //console.log(listings)
 
   return (
     <div className='px-[30px] py-[24px] max-w-[1170px] mx-auto flex flex-col lg:flex-row justify-between gap-4 lg:gap-x-3 relative shadow-1 bg-white rounded-lg'>

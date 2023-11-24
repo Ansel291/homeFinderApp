@@ -20,20 +20,15 @@ function OAuth() {
     try {
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
-      //console.log(provider)
       const result = await signInWithPopup(auth, provider)
       const user = result.user
-      //console.log(user)
 
       // Check for user
       const docRef = doc(db, 'users', user.uid)
-      //console.log(docRef)
       const docSnap = await getDoc(docRef)
-      //console.log(docSnap)
 
       // If user doesn't exist, create user
       if (!docSnap.exists()) {
-        //console.log('Sorry user does NOT exist')
         await setDoc(doc(db, 'users', user.uid), {
           name: user.displayName,
           email: user.email,

@@ -48,26 +48,22 @@ function SignUp() {
         email,
         password
       )
-      //console.log(userCredential)
+
       const user = userCredential.user
-      //console.log(user)
       updateProfile(auth.currentUser, {
         displayName: name,
       })
-      //console.log(user)
 
       const formDataCopy = { ...formData }
       delete formDataCopy.password
 
       formDataCopy.timestamp = serverTimestamp()
-      //console.log(formDataCopy)
 
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
-      //console.log(setDoc)
 
       navigate('/profile')
     } catch (error) {
-      //  console.log(error)
+      console.log(error)
       toast.error('Something went wrong with registration')
     }
   }
@@ -112,16 +108,6 @@ function SignUp() {
                 onClick={() => setShowPassword((prevState) => !prevState)}
               />
             </div>
-
-            {/* 
-            <Link
-              to='/forgot-password'
-              className='cursor-pointer block font-semibold text-center sm:text-right text-orange-500 hover:text-orange-600 transition mb-[48px] sm:mb-[0px]'
-            >
-              Forgot Password
-            </Link>
-
-            */}
 
             <div className='flex items-center justify-center sm:justify-start mb-[36px] sm:mb-[7.5px] md:mb-[0px]'>
               <p className='text-[24px] font-[700]'>Sign Up</p>

@@ -11,7 +11,6 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 // import components
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 import RightArrow from '../components/RightArrow'
-//import { AiFillEye } from 'react-icons/ai'
 import OAuth from '../components/OAuth'
 import Footer from '../components/Footer'
 
@@ -37,7 +36,6 @@ function SignIn() {
 
     try {
       const auth = getAuth()
-      //console.log(auth)
 
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -45,15 +43,11 @@ function SignIn() {
         password
       )
 
-      //console.log(userCredential)
-      //console.log(userCredential.user)
-
       if (userCredential.user) {
-        console.log('Yay you are a registered user')
         navigate('/profile')
       }
     } catch (error) {
-      //console.log(error)
+      console.log(error)
       toast.error('Bad User Credentials')
     }
   }

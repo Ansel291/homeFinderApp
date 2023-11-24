@@ -30,7 +30,6 @@ import Footer from '../components/Footer'
 // import Icons
 import { IconContext } from 'react-icons/lib'
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri'
-//import { MdLocationOn } from 'react-icons/md'
 import { MdLocationOn } from 'react-icons/md'
 
 // import headless ui
@@ -42,22 +41,15 @@ function EditListing() {
   const [loading, setLoading] = useState(false)
   const [listing, setListing] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-
   const [selectedState, setSelectedState] = useState(listedStates[0])
-  //const [selectedState, setSelectedState] = useState('')
-  //console.log(selectedState)
-  //console.log(selectedState.value)
-
   const [imagesToRemove, setImagesToRemove] = useState([])
 
   const [formData, setFormData] = useState({
     type: 'sell',
     propertyType: 'house',
-    //propertyType: listedStates[0].stateName,
     description: '',
     surfaceArea: 0,
     name: '',
-    //state: listedStates[0].stateName,
     state: selectedState.stateName,
     bedrooms: 1,
     bathrooms: 1,
@@ -66,8 +58,6 @@ function EditListing() {
     address: '',
     price: 0,
     images: {},
-    //latitude: 0,
-    //longitude: 0,
   })
 
   const {
@@ -84,15 +74,11 @@ function EditListing() {
     address,
     price,
     images,
-    //latitude,
-    //longitude,
   } = formData
 
   const auth = getAuth()
   const navigate = useNavigate()
   const params = useParams()
-  //console.log(params)
-  //console.log(params.id)
   const isMounted = useRef(true)
 
   // Redirect if listing is not user's
@@ -105,42 +91,22 @@ function EditListing() {
 
   // Fetch listing to edit
   useEffect(() => {
-    console.log('useEffect loaded')
     setLoading(true)
     const fetchListing = async () => {
-      console.log('fetchListing loaded')
       const docRef = doc(db, 'listings', params.id)
-      console.log(docRef)
       const docSnap = await getDoc(docRef)
-      console.log(docSnap)
       if (docSnap.exists()) {
         setListing(docSnap.data())
-        console.log(docSnap.data())
 
         setFormData({ ...docSnap.data(), address: docSnap.data().address })
-        /*
-        setFormData(docSnap.data())
-        */
-        /*
-        setSelectedState({ ...docSnap.data().state })
-        */
-        /*
-        console.log(docSnap.data().state)
-        console.log(listedStates)
-        */
 
         listedStates.filter((listing) => {
-          //console.log(listing.stateName)
-          //console.log(docSnap.data().state)
           if (listing.stateName === docSnap.data().state) {
-            //console.log(listing.id)
             let stateIndex = listing.id - 1
             setSelectedState(listedStates[stateIndex])
-            //return listing.id
           }
         })
-        //console.log(fetchedStateId)
-        //setSelectedState(listedStates[20])
+
         setLoading(false)
       } else {
         navigate('/')
@@ -171,26 +137,12 @@ function EditListing() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    //console.log(formData)
 
     setLoading(true)
 
-    //console.log(images)
-    //console.log(images.length)
-
-    /*
-    if (images.length > 6) {
-      setLoading(false)
-      toast.error('Max 6 images')
-      return
-    }
-    */
-
     let geolocation = {}
-    console.log(geolocation)
-    //let location
+
     let location
-    //console(address)
 
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
@@ -198,28 +150,19 @@ function EditListing() {
 
     const data = await response.json()
 
-    console.log(data)
-
     geolocation.lat = data.results[0]?.geometry.location.lat ?? 0
     geolocation.lng = data.results[0]?.geometry.location.lng ?? 0
-    //console.log(geolocation)
 
-    //location = data.status === 'ZERO_RESULTS'
     location =
       data.status === 'ZERO_RESULTS'
         ? undefined
         : data.results[0]?.formatted_address
 
-    console.log(location)
-
     if (location === undefined || location.includes('undefined')) {
-      //if (address === undefined || address.includes('undefined')) {
       setLoading(false)
       toast.error('Please enter a correct address')
       return
     }
-
-    //console.log(location)
 
     // Store images in firebase
     const storeImage = async (image) => {
@@ -243,13 +186,10 @@ function EditListing() {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            console.log('Upload is ' + progress + '% done')
             switch (snapshot.state) {
               case 'paused':
-                console.log('Upload is paused')
                 break
               case 'running':
-                console.log('Upload is running')
                 break
               default:
                 break
@@ -263,7 +203,6 @@ function EditListing() {
             // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               resolve(downloadURL)
-              //console.log(downloadURL)
             })
           }
         )
@@ -271,16 +210,10 @@ function EditListing() {
     }
 
     // TODO: Throw an error if new image TOTAL is not 6 or less
-    //const availableImageStorage =
-    console.log(listing.imgUrls.length)
-    //console.log(images.length)
-
     const availableImageStorage =
       6 - listing.imgUrls.length + imagesToRemove.length
-    console.log(availableImageStorage)
 
     if (images && images.length > availableImageStorage) {
-      //console.log(images.length)
       setLoading(false)
       toast.error(
         'Image Upload failed - Too many total images for this listing'
@@ -301,35 +234,18 @@ function EditListing() {
         return
       })
     }
-    //console.log(newImageUrls)
-
-    /*
-    const imgUrls = await Promise.all(
-      [...images].map((image) => storeImage(image))
-    ).catch(() => {
-      setLoading(false)
-      toast.error('Images not uploaded')
-      return
-    })
-    //console.log(imgUrls)
-    */
 
     // TODO: Function to Delete an Image from Storage
     const deleteImage = async (imgUrl) => {
       // Split URL to get the filename in the middle
-      console.log(imgUrl)
       let fileName = imgUrl.split('images%2F')
-      console.log(fileName)
       fileName = fileName[1].split('?alt')
-      console.log(fileName)
       fileName = fileName[0]
-      console.log(fileName)
 
       const storage = getStorage()
 
       // Create a reference to the file to delete
       const imgRef = ref(storage, `images/${fileName}`)
-      console.log(imgRef)
 
       // Returns a promise
       return deleteObject(imgRef)
@@ -338,11 +254,7 @@ function EditListing() {
     //TODO: Delete each image in imagesToRemove from storage
     imagesToRemove.forEach(async (imgUrl) => {
       await deleteImage(imgUrl) // Handle the returned promise
-        .then(() => {
-          /*
-          //toast.success('Image was successfully removed from storage')
-          */
-        })
+        .then(() => {})
         .catch((error) => {
           console.log(error)
           toast.error('Deletion failed')
@@ -357,7 +269,6 @@ function EditListing() {
 
     //TODO: Merge ImageUrls with newImageUrls (if defined) --> Then Delete newImageUrls
     let mergedImageUrls
-    console.log(mergedImageUrls)
     if (newImageUrls) {
       mergedImageUrls = [...remainingListingImages, ...newImageUrls]
     } else {
@@ -371,24 +282,7 @@ function EditListing() {
       timestamp: serverTimestamp(),
     }
 
-    //formDataCopy.address = location.substring(0, 40)
-    /*
-    formDataCopy.address = location
-    console.log(formDataCopy.address)
-    */
-
     delete formDataCopy.images
-    /*
-    delete formDataCopy.address
-    */
-    /*
-    location && (formDataCopy.location = location)
-    */
-    //address && (formDataCopy.address = address)
-    //console.log(formDataCopy)
-    //console.log(location)
-
-    //const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
 
     // Update listing
     const docRef = doc(db, 'listings', params.id)
@@ -400,25 +294,14 @@ function EditListing() {
 
   // Form Data Changed
   const onMutate = (e) => {
-    /*
-    let boolean = null
-    */
     let newValue = e.target.value
 
     if (e.target.value === 'true') {
-      /*
-      boolean = true
-        */
       newValue = true
-      //console.log(boolean)
     }
 
     if (e.target.value === 'false') {
-      /*
-      boolean = false
-      */
       newValue = false
-      //console.log(boolean)
     }
 
     // Files
@@ -433,15 +316,8 @@ function EditListing() {
     if (!e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
-        /*
-        [e.target.id]: boolean ?? e.target.value,
-        */
         [e.target.id]: newValue,
       }))
-
-      //console.log(e.target.id)
-      //console.log(boolean)
-      //console.log(e.target.value)
     }
   }
 
@@ -449,7 +325,6 @@ function EditListing() {
     if (e.target.checked) {
       // Case 1 : The user checks the box
       setImagesToRemove([...imagesToRemove, e.target.value])
-      console.log(imagesToRemove)
     } else {
       // Case 2 : The user unchecks the box
       setImagesToRemove((current) =>
@@ -461,15 +336,10 @@ function EditListing() {
   }
 
   const updateState = (selectedState) => {
-    console.log('updateState Function fired')
     setSelectedState(selectedState)
-    //console.log(e.currentTarget.value)
-    console.log(selectedState.stateName)
 
     setFormData((prevState) => ({
       ...prevState,
-      //state: selectedState,
-      //state: e.target.value,
       state: selectedState.stateName,
     }))
   }
@@ -547,10 +417,6 @@ function EditListing() {
               className='dropdown-state relative'
               value={selectedState}
               onChange={updateState}
-              //onChange={(setSelectedState, updateState)}
-              //onChange={(setSelectedState, onMutate)}
-              //onChange={(e) => console.log(e.currentTarget.value)}
-              //onChange={() => updateState}
             >
               <Listbox.Button
                 className={`dropdown-btn-state w-full text-left shadow-1 ${
@@ -567,9 +433,6 @@ function EditListing() {
                 </IconContext.Provider>
                 <div>
                   <div className='text-[15px] font-[500] leading-tight'>
-                    {/*
-                  {listedStates[0].stateName}
-                  */}
                     {selectedState.stateName}
                   </div>
                   <div className='text-[13px]'>Select your state</div>
@@ -592,7 +455,6 @@ function EditListing() {
                     disabled={listedState.unavailable}
                     className='cursor-pointer hover:text-[#f97316] transition'
                     as='li'
-                    //onClick={updateState}
                   >
                     {listedState.stateName}
                   </Listbox.Option>

@@ -2,13 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 
 // import icons
 import { IconContext } from 'react-icons/lib'
-//import { RiMapPinLine, RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri'
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri'
 import { MdLocationOn } from 'react-icons/md'
-//import { MdOutlineLocationOn } from 'react-icons/md'
-//import { TfiLocationPin } from 'react-icons/tfi'
-//import { SlLocationPin } from 'react-icons/sl'
-//import { VscLocation } from 'react-icons/vsc'
 
 // import headless ui
 import { Menu } from '@headlessui/react'
@@ -18,9 +13,6 @@ import { ListingContext } from '../context/ListingContext'
 
 function StateDropdown() {
   const { state, setState, states, listings } = useContext(ListingContext)
-  //console.log(states)
-  //console.log(listings)
-
   const [isOpen, setIsOpen] = useState(false)
 
   return (

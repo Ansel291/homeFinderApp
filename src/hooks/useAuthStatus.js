@@ -10,9 +10,8 @@ export const useAuthStatus = () => {
 
   useEffect(() => {
     if (isMounted) {
-      //console.log(isMounted)
       const auth = getAuth()
-      //console.log(auth)
+
       // auth listener to keep track of user signing in and out
       onAuthStateChanged(auth, (user) => {
         if (user) {

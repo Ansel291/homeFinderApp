@@ -11,7 +11,6 @@ import ListingContextProvider from './context/ListingContext'
 // import components
 import Header from './components/Header'
 import PrivateRoute from './components/PrivateRoute'
-//import Footer from './components/Footer'
 
 // import pages
 import ForgotPassword from './pages/ForgotPassword'
@@ -43,9 +42,6 @@ function App() {
             <Route path='/edit-listing/:id' element={<EditListing />} />
             <Route path='/contact/:landlordId' element={<Contact />} />
           </Routes>
-          {/*
-          <Footer />
-          */}
         </div>
       </Router>
       <ToastContainer />

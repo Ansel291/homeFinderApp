@@ -36,21 +36,16 @@ import { MdLocationOn } from 'react-icons/md'
 import { Listbox } from '@headlessui/react'
 
 function CreateListing() {
-  //const [geolocationEnabled, setGeolocationEnabled] = useState(true)
   const [loading, setLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [selectedState, setSelectedState] = useState(listedStates[0])
-  //console.log(selectedState)
-  //console.log(selectedState.value)
 
   const [formData, setFormData] = useState({
     type: 'sell',
     propertyType: 'house',
-    //propertyType: listedStates[0].stateName,
     description: '',
     surfaceArea: 0,
     name: '',
-    //state: listedStates[0].stateName,
     state: selectedState.stateName,
     bedrooms: 1,
     bathrooms: 1,
@@ -59,8 +54,6 @@ function CreateListing() {
     address: '',
     price: 0,
     images: {},
-    //latitude: 0,
-    //longitude: 0,
   })
 
   const {
@@ -77,8 +70,6 @@ function CreateListing() {
     address,
     price,
     images,
-    //latitude,
-    //longitude,
   } = formData
 
   const auth = getAuth()
@@ -104,12 +95,8 @@ function CreateListing() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    //console.log(formData)
 
     setLoading(true)
-
-    //console.log(images)
-    //console.log(images.length)
 
     if (images.length > 6) {
       setLoading(false)
@@ -118,10 +105,8 @@ function CreateListing() {
     }
 
     let geolocation = {}
-    console.log(geolocation)
-    //let location
+
     let location
-    //console(address)
 
     const response = await fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
@@ -129,28 +114,19 @@ function CreateListing() {
 
     const data = await response.json()
 
-    console.log(data)
-
     geolocation.lat = data.results[0]?.geometry.location.lat ?? 0
     geolocation.lng = data.results[0]?.geometry.location.lng ?? 0
-    //console.log(geolocation)
 
-    //location = data.status === 'ZERO_RESULTS'
     location =
       data.status === 'ZERO_RESULTS'
         ? undefined
         : data.results[0]?.formatted_address
 
-    console.log(location)
-
     if (location === undefined || location.includes('undefined')) {
-      //if (address === undefined || address.includes('undefined')) {
       setLoading(false)
       toast.error('Please enter a correct address')
       return
     }
-
-    //console.log(location)
 
     // Store images in firebase
     const storeImage = async (image) => {
@@ -167,13 +143,10 @@ function CreateListing() {
           (snapshot) => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            console.log('Upload is ' + progress + '% done')
             switch (snapshot.state) {
               case 'paused':
-                console.log('Upload is paused')
                 break
               case 'running':
-                console.log('Upload is running')
                 break
               default:
                 break
@@ -187,7 +160,6 @@ function CreateListing() {
             // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
               resolve(downloadURL)
-              //console.log(downloadURL)
             })
           }
         )
@@ -201,7 +173,6 @@ function CreateListing() {
       toast.error('Images not uploaded')
       return
     })
-    //console.log(imgUrls)
 
     const formDataCopy = {
       ...formData,
@@ -210,22 +181,7 @@ function CreateListing() {
       timestamp: serverTimestamp(),
     }
 
-    //formDataCopy.address = location.substring(0, 40)
-    /*
-    formDataCopy.address = location
-    console.log(formDataCopy.address)
-    */
-
     delete formDataCopy.images
-    /*
-    delete formDataCopy.address
-    */
-    /*
-    location && (formDataCopy.location = location)
-    */
-    //address && (formDataCopy.address = address)
-    //console.log(formDataCopy)
-    //console.log(location)
 
     const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
     setLoading(false)
@@ -234,25 +190,14 @@ function CreateListing() {
   }
 
   const onMutate = (e) => {
-    /*
-    let boolean = null
-    */
     let newValue = e.target.value
 
     if (e.target.value === 'true') {
-      /*
-      boolean = true
-      */
       newValue = true
-      //console.log(boolean)
     }
 
     if (e.target.value === 'false') {
-      /*
-      boolean = false
-      */
       newValue = false
-      //console.log(boolean)
     }
 
     // Files
@@ -267,28 +212,16 @@ function CreateListing() {
     if (!e.target.files) {
       setFormData((prevState) => ({
         ...prevState,
-        /*
-        [e.target.id]: boolean ?? e.target.value,
-        */
         [e.target.id]: newValue,
       }))
-
-      //console.log(e.target.id)
-      //console.log(boolean)
-      //console.log(e.target.value)
     }
   }
 
   const updateState = (selectedState) => {
-    console.log('updateState Function fired')
     setSelectedState(selectedState)
-    //console.log(e.currentTarget.value)
-    console.log(selectedState.stateName)
 
     setFormData((prevState) => ({
       ...prevState,
-      //state: selectedState,
-      //state: e.target.value,
       state: selectedState.stateName,
     }))
   }
@@ -366,10 +299,6 @@ function CreateListing() {
               className='dropdown-state relative'
               value={selectedState}
               onChange={updateState}
-              //onChange={(setSelectedState, updateState)}
-              //onChange={(setSelectedState, onMutate)}
-              //onChange={(e) => console.log(e.currentTarget.value)}
-              //onChange={() => updateState}
             >
               <Listbox.Button
                 className={`dropdown-btn-state w-full text-left shadow-1 ${
@@ -386,9 +315,6 @@ function CreateListing() {
                 </IconContext.Provider>
                 <div>
                   <div className='text-[15px] font-[500] leading-tight'>
-                    {/*
-                  {listedStates[0].stateName}
-                  */}
                     {selectedState.stateName}
                   </div>
                   <div className='text-[13px]'>Select your state</div>
@@ -411,7 +337,6 @@ function CreateListing() {
                     disabled={listedState.unavailable}
                     className='cursor-pointer hover:text-[#f97316] transition'
                     as='li'
-                    //onClick={updateState}
                   >
                     {listedState.stateName}
                   </Listbox.Option>
