@@ -5,7 +5,6 @@ import {
   collection,
   getDocs,
   query,
-  where,
   orderBy,
   limit,
   startAfter,
@@ -29,6 +28,7 @@ const ListingContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchListings = async () => {
+      console.log('fetchListings fired')
       try {
         // Get reference
         const listingsRef = collection(db, 'listings')
@@ -42,7 +42,6 @@ const ListingContextProvider = ({ children }) => {
         const lastVisible = querySnap.docs[querySnap.docs.length - 1]
         setLastFetchedListing(lastVisible)
 
-        const listings = []
         const listingsData = []
         let allStates = []
         let allCategories = []
@@ -84,6 +83,7 @@ const ListingContextProvider = ({ children }) => {
 
   // Pagination / Load More
   const onFetchMoreListings = async () => {
+    console.log('Yay you clicked onMoreFetchListings function')
     try {
       // Get reference
       const listingsRef = collection(db, 'listings')
@@ -102,7 +102,6 @@ const ListingContextProvider = ({ children }) => {
       const lastVisible = querySnap.docs[querySnap.docs.length - 1]
       setLastFetchedListing(lastVisible)
 
-      const listings = []
       const listingsData = []
       const allStates = []
       const allCategories = []

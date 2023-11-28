@@ -23,7 +23,6 @@ function ListingItem({ listing, id, onDelete, onEdit }) {
     price,
     type,
   } = listing
-  console.log('fff')
   return (
     <>
       <Link to={`/${type}/${id}`}>
