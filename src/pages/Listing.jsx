@@ -222,11 +222,18 @@ function Listing() {
                 </MapContainer>
               </div>
 
-              <Link
-                to={`/contact/${listing.userRef}?listingName=${listing.name}`}
+              <a
+                href='tel:310-909-9341'
                 className='primary-button hover:bg-[#ea580c] transition'
               >
-                Contact Landlord
+                Call: 310-909-9341
+              </a>
+
+              <Link
+                to={`/contact/${listing.userRef}?listingName=${listing.name}`}
+                className='secondary-button hover:bg-[#8e8e8e] transition'
+              >
+                Message {listing.type === 'rent' ? 'Landlord' : 'Seller'}
               </Link>
             </aside>
           </div>
