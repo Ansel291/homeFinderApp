@@ -41,6 +41,7 @@ function Listing() {
       const docSnap = await getDoc(docRef)
 
       if (docSnap.exists()) {
+        console.log(docSnap.data())
         setListing(docSnap.data())
         setLoading(false)
       }
@@ -223,10 +224,15 @@ function Listing() {
               </div>
 
               <a
-                href='tel:310-909-9341'
+                href={`tel:${listing.phone
+                  .toString()
+                  .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}`}
                 className='primary-button hover:bg-[#ea580c] transition'
               >
-                Call: 310-909-9341
+                Call:{' '}
+                {listing.phone
+                  .toString()
+                  .replace(/^(\d{3})(\d{3})(\d{4})/, '$1-$2-$3')}
               </a>
 
               <Link

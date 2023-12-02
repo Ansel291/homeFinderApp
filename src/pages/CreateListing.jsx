@@ -46,6 +46,7 @@ function CreateListing() {
     description: '',
     surfaceArea: 0,
     name: '',
+    phone: '',
     state: selectedState.stateName,
     bedrooms: 1,
     bathrooms: 1,
@@ -62,6 +63,7 @@ function CreateListing() {
     description,
     surfaceArea,
     name,
+    phone,
     state,
     bedrooms,
     bathrooms,
@@ -291,6 +293,18 @@ function CreateListing() {
                 Apartment
               </button>
             </div>
+
+            <label className='form-label'>Phone:</label>
+            <input
+              className='form-input-phone shadow-1'
+              type='text'
+              id='phone'
+              value={phone}
+              onChange={onMutate}
+              minLength='10'
+              maxLength='10'
+              required
+            />
 
             <label className='form-label mb-[5px]'>Location:</label>
 

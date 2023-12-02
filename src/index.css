@@ -192,6 +192,7 @@ code {
 .form-button,
 .form-button-active,
 .form-input-name,
+.form-input-phone,
 .form-input-small,
 .form-input-address,
 .form-input-desc,
@@ -214,6 +215,7 @@ code {
 }
 
 .form-input-name,
+.form-input-phone,
 .form-input-small,
 .form-input-address,
 .form-input-desc,
@@ -230,6 +232,7 @@ code {
 }
 
 .form-input-name,
+.form-input-phone,
 .form-input-address,
 .form-input-desc {
   padding: 0.9rem 1rem;
