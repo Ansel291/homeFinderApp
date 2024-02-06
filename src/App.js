@@ -27,7 +27,7 @@ function App() {
   return (
     <ListingContextProvider>
       <Router>
-        <div className='max-w-[1440px] mx-auto bg-white'>
+        <div className='mx-auto bg-white'>
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
